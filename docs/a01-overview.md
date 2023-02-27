@@ -28,7 +28,8 @@
 
 * Model based framework for scenario analysis
 
-* Support for finstab scenario production and macropru policy analysis
+* Support for finstab scenario production and macropru policy analysis,
+  its cost-benefit analysis
 
 * Top-layer complement to other existing models/tools
 
@@ -52,7 +53,8 @@
 
 * Deeply structural (aka DSGE) or "publishable" model
 
-* Theory-based justification for macropru interventions
+* Theory-based justification for macropru interventions (aggregate risk,
+  money creation vs intermediation functions of banks, myopia, etc.)
 
 * Framework for (stress) testing individual institutions
 
@@ -87,6 +89,9 @@
 
 * Examples of extension we implemented elsewhere: nonbank intermediaries (securities
   dealers), corporate fixed income markets, sovereign fixed income markets
+
+* Keywords: Nonlinearities, asymmetries, stock-flow relationships, aggregate risk, macropru as robust
+  not optimal policy
 
 
 ![Model structure](model-structure.png)
@@ -141,20 +146,20 @@
 
 ### Typical use cases
 
-1. Data-based projections, scenarios consistent with macroeconomic
-   assumptions (e.g. central bank macro forecast) and the current state of
-   the financial sector
 
-1. Delta method to build scenarios on top of a baseline: consistent picture
-   of shock impact on the macroeconomy and financial sector, taking into
-   account the current state of the financial sector
+1. **Data-based baseline projections**, e.g. scenarios consistent with
+   macroeconomic assumptions (e.g. central bank macro forecast) and the
+   current state of the financial sector
 
-1. Interpret historical/recent data (shocks, counterfactuals,
-   unobservables)
+1. **Macro stress scenarios** build with the macro baseline as the
+   starting point (delta method): input into futher stress testing tools
 
-1. Conceptual simulations, in particular policy interventions simulations,
-   to recive insights as to how a particular policy impacts the financial
-   sector and macroeconomy
+1. Impact of (alternative) **macroprudential interventions** in such scenarios,
+   aggregative input into cost-benefit analysis discussions
+
+1. **Conceptual/"theoretical" simulations**, in particular policy
+   interventions simulations for building insights, elevating discussions
+   inside the institution, building macropru narrative for the public
 
 
 --------------------------------------------------------------------------------
