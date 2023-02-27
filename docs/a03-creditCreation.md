@@ -5,18 +5,18 @@
 
 
 $$
-\gdef\xhspace{\hspace{0.05em}}
-\gdef\xy{\mathit{y}}
-\gdef\xpy{\mathit{py}}
-\gdef\xnewl{\mathit{l\xhspace}^{\Delta}}
-\gdef\xivy{\mathit{\imath vy\xhspace}}
-\gdef\xtrn{\mathit{trn\xhspace}}
-\gdef\xyfwl{\mathit{fwy}}
-\gdef\xss{\mathrm{ss}}
-\gdef\xtnd{\mathrm{tnd}}
-\gdef\xlc{r^\mathrm{cond}}
-\gdef\xl{\mathit{l}}
-\gdef\xny{\mathit{ny}}
+\newcommand{\xhspace}{\hspace{0.05em}}
+\newcommand{\xy}{\mathit{y}}
+\newcommand{\xpy}{\mathit{py}}
+\newcommand{\xnewl}{\mathit{l\xhspace}^{\Delta}}
+\newcommand{\xivy}{\mathit{\imath vy\xhspace}}
+\newcommand{\xtrn}{\mathit{trn\xhspace}}
+\newcommand{\xyfwl}{\mathit{fwy}}
+\newcommand{\xss}{\mathrm{ss}}
+\newcommand{\xtnd}{\mathrm{tnd}}
+\newcommand{\xlc}{r^\mathrm{cond}}
+\newcommand{\xl}{\mathit{l}}
+\newcommand{\xny}{\mathit{ny}}
 \notag
 $$
 
