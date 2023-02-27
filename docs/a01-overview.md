@@ -1,113 +1,134 @@
 
-# Overview of the framework
+# Introduction and overview
 
 ![[title-page.md]]
 
 
----
+--------------------------------------------------------------------------------
+
+### What are we doing?
+
+* Global Institute for Macroprudential Modeling [www.gimm.institute](https://www.gimm.institute): a
+  (non-profit) networking organization for finstab and macropru
+  practitioners
+
+* Running regional and technical workshops
+
+* Developing and implementing a finstab and macropru model framework
+
+* Global macrofinancial scenario deliveries
+
+--------------------------------------------------------------------------------
 
 
-## What is the framework for?
+### What is the framework for?
 
-* Big-picture description of two-way interactions between macro and the
-  banking system with endogenous feedbacks
+* Big-picture aggregative description of two-way "behavioral" interactions between macro
+  and the financial system with endogenous feedback
 
-* Support for macroprudential policy analysis; focus on individual
-  macroprudential policy interventions
+* Model based framework for scenario analysis
 
-* Scenario analysis with explicit assumptions
+* Support for finstab scenario production and macropru policy analysis
 
-* Complement (not substitute) to other existing models/tools
+* Top-layer complement to other existing models/tools
 
-* Synthesize a variety of insights and inputs, including expert judgment
+* Designed to help synthesize a variety of insights and inputs, including
+  expert judgment
 
-* Focus on the asset side (asset performance)
+* Focus on medium-term time dimension of solvency risk (but flexible to
+  judgmentally accommodate a range of other dimensions)
+
+* Customizable and extensible to accommodate regional and jurisdictional
+  specifics
 
 
----
+--------------------------------------------------------------------------------
 
+### What is the framework **not** meant to be?
 
-## What is the framework **not** for?
-
-* Forecasting framework
+* Forecasting framework 
 
 * Formal probabilistic model or statistical prediction framework
 
-* Deeply structural (aka DSGE) model
+* Deeply structural (aka DSGE) or "publishable" model
 
-* Analyze endogenous macroprudential policy  (unlike monetary policy
-  models)
+* Theory-based justification for macropru interventions
 
-
----
+* Framework for (stress) testing individual institutions
 
 
-## Use cases and place in financial stability frameworks
+--------------------------------------------------------------------------------
+
+### Digression: Theoretical foundations
+
+* A large amount of insights from our work on macropru DSGE models 
+
+* Converted to semi-structural form
+
+* Evolving form, based on our implementation expercience
+
+
+--------------------------------------------------------------------------------
+
+
+### Use cases and place in finstab and macropru
 
 *After we see the structure of the model*
 
----
 
-## Basic structure of the framework
+--------------------------------------------------------------------------------
+
+### Basic structure of the framework
 
 * Modular design (highly customizable) rather than fixed form
-* The very basic model framework consists of three types of modules: macro, banking system, and connecting modules
+
+* The very basic model framework consists of three types of modules: macro,
+  banking system, and connecting modules
+
+* Examples of extension we implemented elsewhere: nonbank intermediaries (securities
+  dealers), corporate fixed income markets, sovereign fixed income markets
+
 
 ![Model structure](model-structure.png)
 
 
----
+--------------------------------------------------------------------------------
+
+### Core feedback
+
+![Core feedback](feedback.png)
+
+--------------------------------------------------------------------------------
+
+### Semi-structual modeling approach 
+
+* **Top-down** model building strategy: the properties of the model as a whole
+  matter and are frequently the starting point for writing equations
+
+* Explicit (but not microfounded) concepts of **supply and demand**
+
+* **Unobserved components**: sustainability trends both in macro and
+  financial parts (potential output, credit to GDP, excess comfort buffers,
+  etc.)
+
+* Forward-looking (model-consistent) **expectations**
+  * Help introduce some financial concepts consistently (e.g. IFRS9, pricing of future anticipated risk, etc.)
+  * Help construct scnearios with expliciti assumptions about future events and their anticipation
+
+* Well-behaved *8steady state** (steady growth path)
+
+* Calibration heavily based on the properties of the model as **a whole
+  system** ("smell test" simulations, policy trade-offs)
+
+* Simplifying assumptions to mimic real word in an analytically tractable
+  way (loan repayment schedule, present value calculations, asset valuation)
 
 
-## Brief description of main modules
+--------------------------------------------------------------------------------
 
-| File name in `+model`         | Description   |
-|---                            |---            |
-| `macro.model`         | Concise description of the macroeconomy: real economic activity (GDP, potential, gap), price level (CPI, deflator), monetary policy, short-term money market rate, exchange rate |
-| `creditCreation.model` | Demand for new loans, responding to lending conditions and macro activity, loans to GDP ratio |
-| `creditRisk.model`          | Macroeconomic conditions index; nonlinear mapping from macro conditions index to portfolio default rates |
-| `interestRate.model`       | Setting of new lending and new funding rates by banks, time evolution of stock lending and stock funding rates |
-| `loanPerformance.model`   | Performing, nonperforming loans; gross, net loans; allowances for losses, write-offs |
-| `bankCapital.model`       | Internal and external flows of capital, components of profit/loss, regulatory capital indicators and policies |
+### Operational flexibility
 
-
-
-## Semi-structual approach to modeling
-
-* Top-down model building strategy - look at the financial system as a
-  whole, describe the aggregate behavior, big picture interactions between
-  macroeconomy and financial sector
-
-* Explicit (but not _microfounded_) concepts of supply and demand
-  (aggregate, credit, etc.): framework closely follows
-  theoretically-consistent models, but deviates where necessary for
-  tractability and operability
-
-* Unobserved sustainability trends, similar to (unobserved) potential
-  output or equilibrium real interest rate in other models
-
-* Explicit forward-looking (model-consistent) endogenous expectations,
-  impact of the anticipation status of future events (anticipated vs
-  unanticipated shocks, pre-announced vs suprise policy actions)
-
-* Well-behaved steady-state (growth path)
-
-
-* When parameterizing the model, the properties of the model as a whole system matter
-
-* Simple recursive processes to approximate complex real-life dynamics (loan repayment schedule, present value calculations, asset valuation)
-
-## Stylized flowchart of main macro-financial feedback linkages
-
-
----
-
-
-![Stylized flowchart of main macro-financial feedback linkages](feedback.png)
-
-## Operational flexibility
-
-* Not a traditional econometric model with fixed form
+* Not a traditional econometric or research model with fixed form
 
 * Needs to be maintained as a live evolving project, reacting to needs and
   questions arising over time
@@ -115,10 +136,10 @@
 * Some equations and parameters may change as part of scenario assumptions
 
 
----
+--------------------------------------------------------------------------------
 
 
-## Typical use cases
+### Typical use cases
 
 1. Data-based projections, scenarios consistent with macroeconomic
    assumptions (e.g. central bank macro forecast) and the current state of
@@ -136,14 +157,5 @@
    sector and macroeconomy
 
 
----
+--------------------------------------------------------------------------------
 
-To add
-
-* Aggregative
-* Financial system = banking system in the basic version, extensions: securities dealers, nonbank intermediaries, large corporate securities markets
-* Medium-term risks to solvency
-* Dynamic portfolio, "behavioral" response
-* Two-way interactions
-* Justification for macroprudential
-* Highly country specific (accounting, regulatory, reporting standards)

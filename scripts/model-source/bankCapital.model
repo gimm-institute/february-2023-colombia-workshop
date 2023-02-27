@@ -109,13 +109,13 @@
 
     % Return on bank capital
     (rbk - shock_rbk + cx_rbk_x * x) * bk{-1} = ...
-        + $prof_int_loans$...    % Interest income from loans
-        + $prof_int_ona$ ...     % Interest income from other net assets (securities)
-        + $prof_other$ ...       % Other net income
-        + $prof_prov$...         % Provisioning
-        + $prof_val_ass$...      % Exchange rate valuation of assets
-        + $prof_int_liab$...     % Interest expense on liabilities
-        + $prof_val_liab$...     % Exchange rate valuation of liabilities
+        + $prof_int_loans$...    Interest income from loans
+        + $prof_int_ona$ ...     Interest income from other net assets (securities)
+        + $prof_other$ ...       Other net income
+        + $prof_prov$...         Provisioning
+        + $prof_val_ass$...      Exchange rate valuation of assets
+        + $prof_int_liab$...     Interest expense on liabilities
+        + $prof_val_liab$...     Exchange rate valuation of liabilities
     ;
 
 
@@ -129,7 +129,7 @@
 
 
     % External capital flows
-    xcf_to_bk = (bk - bk{-1}*(1 + rbk)) / bk;
+    xcf_to_bk = (bk - bk{-1}*(1 + rbk)) / bk{-1};
 
 
     % Regulatory bank capital
@@ -178,7 +178,7 @@
     movavg_car = movavg(car, -4);
 
 
-%% Currency of denomination for non-equity liabilities
+%% Currency of denomination for funding liabilities
 
 !variables
 
@@ -216,4 +216,5 @@
     roa_int_liab = $prof_int_liab$ / tna{-1};
     roa_val_liab = $prof_val_liab$ / tna{-1};
     roa_other = $prof_other$ / tna{-1};
+
 

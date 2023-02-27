@@ -19,6 +19,7 @@ function ch = defineChartpack()
     ch + "//";
 
     ch + "Credit to GDP ratio // Pp deviations: ^100*l_to_4ny_hh";
+    ch + "New credit to GDP ratio // Pp deviations: ^100*new_l_to_ny_hh";
     ch + "New real credit // Pct level deviations: new_l_hh/cpi";
     ch + "Credit conditions // Pp deviations PA: ^400*new_rl_full_spread_gap";
     ch + "Stock lending rates // PP deviations PA: ^400*rl_hh";

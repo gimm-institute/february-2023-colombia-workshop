@@ -1,4 +1,22 @@
 
+%{
+
+# Set up workshop repositories locally
+
+### Prerequisites
+
+* Matlab R2021b or later
+* Git installed locally
+
+### What the script does
+
+* Clone the workshop repository to a local folder inside the Matlab user path
+* Clone the bleeding branch of the Iris Toolbox to a local folder next to the workshop folder
+* Backup the folders if they existed before
+
+%}
+
+
 cd(userpath)
 disp("    Setting up workshop repositories in " + pwd())
 

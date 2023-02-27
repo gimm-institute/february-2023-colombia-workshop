@@ -3,6 +3,7 @@
 
 ![[title-page.md]]
 
+
 $$
 \newcommand{\xona}[1][t]{{ona}_{#1}}
 \newcommand{\xrona}[1][t]{rona_{#1}}
@@ -89,7 +90,7 @@ $$
 --------------------------------------------------------------------------------
 
 
-## Simplified aggregate bank balance sheets
+### Simplified aggregate bank balance sheets
 
 The model explicitly describes balance sheet of the aggregate banking
 sector in the following form:
@@ -103,11 +104,13 @@ sector in the following form:
 | $\xona$ | Other net assets | | Balance sheet capital |$bk_t$|
 
 
-Non-equity liabilities $\xd$ include deposits as well as other sources of
-financing.
+* Bank loans can be denominated in local or foreign currency
 
-All allowances here assumed to be contra-assets, and netted against
-gross exposure values before risk weighting.
+* Non-equity liabilities $\xd$ include deposits as well as other sources of
+  financing.
+
+* All allowances here assumed to be contra-assets, and netted against gross
+  exposure values before risk weighting.
 
 
 --------------------------------------------------------------------------------
@@ -115,21 +118,38 @@ gross exposure values before risk weighting.
 
 ## Multiperiod loans with geometric paydown
 
+
+
+--------------------------------------------------------------------------------
+
+### Motivation 
+
 * Real-world loan portfolios include a whole range of loan durations
+  (maturities)
+
+* Stock-flow relationships between the stock of credit and new credit
+  critical for the cost of deleveraging process
 
 * Need to simplify to keep the model tractable, but still maintain key
   features of the real-world
 
-* Model the average duration using a portfolio with geometrically decaying
-  paydowns [^1]
+* Assume a composite portfolio of loans with geometrically decreasing
+  paydowns[^1]
 
-* One-parameter recursive representation with great analytically
-  tractability
+    * Represents a mix of durations
 
-* Calibrated using Macaulay duration
+    * Needs one single parameter
+
+    * Has a recursive representation 
+
+    * Calibrated using Macaulay duration
+
 
 [^1]: For instance, Rudebusch and Swanson (2008) Examining the bond premium puzzle with a DSGE model. JME 55 (2008), S111--S126
 
+
+
+--------------------------------------------------------------------------------
 
 
 ### Lifetime of a single riskless pool
@@ -154,6 +174,9 @@ general.
 
 
 
+--------------------------------------------------------------------------------
+
+
 ### Calibrating loan duration
 
 Steady-state [Macaulay duration](https://en.wikipedia.org/wiki/Bond_duration)
@@ -162,6 +185,8 @@ $$
 MD \quad =\quad 1\cdot \frac{\theta + \xrlss}{1 + \xrlss} \quad +\quad 2\cdot \frac{\left(\theta + \xrlss\right) \left(1-\theta\right) }{\left(1 + \xrlss\right)^ 2} \quad + \quad \cdots \quad = \frac{1+\xrlss}{\theta+\xrlss}
 $$
 
+
+--------------------------------------------------------------------------------
 
 
 ### Time evolution of a dynamic riskless loan portfolio
@@ -190,6 +215,11 @@ $$
 
 ## Credit risk and loan performance
 
+
+--------------------------------------------------------------------------------
+
+### Credit events
+
 * Introduce a theoretical structure that is simple enough to remain analytically tractable
 
 * Make losses proportional not to the book value but the present value $\longrightarrow$ simplify present value calculations (e.g. IFRS9
@@ -201,6 +231,9 @@ $$
 **Static** snapshot of possible paths for a given loan
 
 ![Credit risk and loan performance](credit-risk-loan-performance.png)
+
+
+--------------------------------------------------------------------------------
 
 
 ### Classification of gross loans
@@ -225,6 +258,8 @@ $$
 $$
 
 
+--------------------------------------------------------------------------------
+
 
 ###  Flows in gross loan portfolio
 
@@ -244,17 +279,19 @@ where
 * $\lambda$ is parameter governing the share of the newly non-performing loans which falls into the write-off buffer $\xlnw$
 
 
+--------------------------------------------------------------------------------
+
 
 ### Stock-flow dynamics in risky loan portfolio
 
 
-
 ![Stock-flow dynamics in risky loan portfolio](loans-stock-flow.png)
+
+--------------------------------------------------------------------------------
 
 ### Time evolution of dynamic risky loan portfolio
 
 Assuming no exchange rate valuation in all that follows below
-
 
 #### Performing loans
 
@@ -287,7 +324,8 @@ $$
 \xlp=(1-\xrepay[t-1]) \, \xlpo{t}{} + \xnewl{t}{}
 $$
 
-#### __Nonperforming loans: Recovery buffer__
+
+#### Nonperforming loans: Recovery buffer
 
 **Closing** balance rolled over from previous time $t-1$ 
 
@@ -327,7 +365,8 @@ $$
 \xlnc=(1-\xrecover) \, \xlnco
 $$
 
-#### __Nonperforming loans: Write-off buffer__
+
+#### Nonperforming loans: Write-off buffer
 
 **Closing** balance rolled over from previous time $t-1$ 
 
@@ -359,6 +398,10 @@ $$
 
 ## Provisioning and write-offs
 
+
+--------------------------------------------------------------------------------
+
+
 ### Provisioning
 
 The stock of allowances, $\xall$, is determined by expected credit losses; the balancing item here is the impact of changes in allowances on period profit/loss after correction for write-offs
@@ -372,6 +415,9 @@ $$
 * $\xwoff$ is period write-offs (flow)
 
 * $\xnewall{t}{ }$ is the impact of new provisions (flow) on period profit/loss
+
+
+--------------------------------------------------------------------------------
 
 
 ### Write-off process
@@ -389,7 +435,11 @@ $$
 
 --------------------------------------------------------------------------------
 
-## Portfolio segmentation
+## Segmentation and valuation
+
+--------------------------------------------------------------------------------
+
+### Portfolio segmentation
 
 Consider total gross loans consisting of a number $K$ of segments (subportfolios, subclasses), each differing in its
 
@@ -411,7 +461,7 @@ Each loan segment is tracked separately. Equations presented above exist in $K$ 
 --------------------------------------------------------------------------------
 
 
-## Exchange rate valuation
+### Exchange rate valuation
 
 For practical modeling:
 
@@ -421,6 +471,9 @@ For practical modeling:
 
 * All balance sheet quantities will be expressed (reported, tracked) in
   *local currency units* independently of their currency of *denomination*
+
+
+--------------------------------------------------------------------------------
 
 
 ### Parameterizing foreign currency denomination
@@ -442,6 +495,9 @@ $$
 j^k_t = (1- \sigma_k) + \sigma_k \, \frac{\xe}{\xe[t-1]} 
 = 1 + \sigma_k \left( \frac{\xe}{\xe[t-1]} - 1\right)
 $$
+
+
+--------------------------------------------------------------------------------
 
 
 ### Time evolution of foreign currency denominated loan segments
@@ -476,6 +532,7 @@ $$
 $$
 
 
+--------------------------------------------------------------------------------
 
 ### Open net foreign positions
 

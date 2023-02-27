@@ -21,7 +21,10 @@ $$
 $$
 
 
-## Overview
+--------------------------------------------------------------------------------
+
+
+### Overview
 
 
 * Causality between Credit and Macroeconomic Activity
@@ -33,8 +36,10 @@ $$
 * Deleveraging
 
 
+--------------------------------------------------------------------------------
 
-## Causality between credit and macro activity
+
+### Causality between credit and macro activity
 
 __Reduced-form approach__
 
@@ -54,7 +59,7 @@ Motivated by insights from DSGE models, provides more insight. Our approach
 --------------------------------------------------------------------------------
 
 
-## Lending conditions
+### Lending conditions
 
 Real-world lending conditions comprise
 
@@ -74,7 +79,10 @@ In the model, the index of overall lending conditions is calculated as follows:
 
 
 
-## Structure of credit creation process
+--------------------------------------------------------------------------------
+
+
+### Structure of credit creation process
 
 
 
@@ -85,7 +93,7 @@ In the model, the index of overall lending conditions is calculated as follows:
 --------------------------------------------------------------------------------
 
 
-## Demand for new credit
+### Demand for new credit
 
 New credit is demanded to finance current period's transactions
 
@@ -107,7 +115,7 @@ periods).
 --------------------------------------------------------------------------------
 
 
-## Current transactions
+### Current transactions
 
 Current period nominal transactions comprise new value added (consumption,
 investment, etc.) and trade in existing assets
@@ -120,7 +128,7 @@ $$
 --------------------------------------------------------------------------------
 
 
-## Inverse velocity of new credit
+### Inverse velocity of new credit
 
 Process designed to stabilize the stock of bank loans to GDP ratio and
 bring in the impact of lending conditions and other factors:
@@ -148,7 +156,7 @@ where
 --------------------------------------------------------------------------------
 
 
-## Deleveraging: Stocks and flows
+### Deleveraging: Stocks and flows
 
 
 Deleveraging is the process of reducing the amount of gross debt of
@@ -165,5 +173,6 @@ $$
 Reductions in new loans are trigerred by tighter lending conditions and
 (hence) a slowdown in real economic activity
 
----
+
+--------------------------------------------------------------------------------
 

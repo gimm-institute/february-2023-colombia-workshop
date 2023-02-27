@@ -1,4 +1,4 @@
-%% Simulate deleveraging
+%% Simulate boom-bust in asset prices and credit 
 
 
 %% Clear the workspace
@@ -108,7 +108,7 @@ smc4 = databank.minusControl(m, s4, d0);
 
 ch = defineChartpack();
 
-ch.FigureTitle = "Asset price boom-bust: " + ch.FigureTitle;
+ch.FigureTitle = "Asset price and credit boom-bust: " + ch.FigureTitle;
 ch.Range = 0:40;
 ch.Highlight = 0:T;
 ch.FigureExtras = { @(h) visual.hlegend("bottom", "Boom-bust") };

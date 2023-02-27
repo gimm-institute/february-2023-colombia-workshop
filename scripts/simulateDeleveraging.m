@@ -3,13 +3,9 @@
 
 %% Clear the workspace
 
-% close all
+close all
 clear
 load mat/createModel.mat m
-
-m.sw = 0;
-checkSteady(m);
-m = solve(m);
 
 
 %% Design the simulation
@@ -36,8 +32,8 @@ d1 = steadydb(m, -10:40);
 
 s1 = simulate( ...
     m1, d1, 1:40 ...
-    , 'prependInput',true ...
-    , 'method',"stacked" ...
+    , prependInput=true ...
+    , method="stacked" ...
 );
 
 smc1 = databank.minusControl(m1, s1, d1);
@@ -54,6 +50,9 @@ draw(ch, smc1);
 
 
 return
+
+
+
 
 
 
@@ -111,3 +110,4 @@ for i = 1 : countVariants(m1)
 end
 
 visual.heading("Capital adequacy stress function", 'fontSize',25, 'fontWeight',"bold");
+

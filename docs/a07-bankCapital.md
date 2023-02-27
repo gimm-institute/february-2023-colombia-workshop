@@ -1,6 +1,7 @@
 
 # Bank capital and capital regulation
 
+![[title-page.md]]
 
 $$
 \newcommand{\xona}[1][t]{{ona}_{#1}}
@@ -83,13 +84,16 @@ $$
 \newcommand{\xprof}[1][t]{\mathit{prof}_{#1}}
 \newcommand{\xxcf}[1][t]{\mathit{xcf}_{#1}}
 \newcommand{\xriskw}[1][t]{\mathit{riskw}_{#1}}
-\newcommand{\xregk}[1][t]{\mathit{regk}_{#1}}
+\newcommand{\xregk}[1][t]{\mathit{bg}_{#1}}
 \newcommand{\xfnc}[1][t]{\mathit{fnc}_{#1}}
 \notag
 $$
 
 
-## Overview
+--------------------------------------------------------------------------------
+
+
+### Overview
 
 
 __Bank capital__
@@ -101,27 +105,33 @@ __Bank capital__
 __Internal and external capital flows__ 
 
 * Components of period profit/loss
+* External flows
+
+__Capital adequacy and bank behavior__
+
+* Regulatory capital
 * Target capital levels
+
 
 __Feedback to bank lending__
 
-* Likelihood of regulatory capital shortfall
+* Regulatory capital shortfall
 * Nonlinear cost of bank capital
 
 
+--------------------------------------------------------------------------------
 
-## Bank capital accumulation 
 
-Scheme describes bank capital accumulation within one period.
+### Bank capital accumulation
 
 ![Bank capital accumulation](bank-capital-stock-flow.png)
 
 
+--------------------------------------------------------------------------------
 
-## Bank capital accumulation
 
+### Bank capital accumulation
 
-__Balance sheet capital__
 
 $$
 \xbk = \xbk[t-1] + \xprof + \xxcf
@@ -134,17 +144,23 @@ $$
 * $\xxcf$ is an external flow of capital throughout $t$: dividends paid out (–), new equity issuance (+), equity withdrawals by parents (–), recapitalization flows (+), etc.
 
 
+--------------------------------------------------------------------------------
 
-## Regulatory capital and CAR
+### Regulatory capital and CAR
 
+* Balance sheet capital, $bk_t$, and regulatory capital, $bg_t$, differ in
+  their definitions and reporting standards
 
+* Either use a mechanical reconciliation process (as is here) or model the
+  details of the differences
+
+<br/>
 
 __Regulatory capital__
 
 $$
 \xregk = \left[ \frac{\xregk[]}{\xbk[]} \right]_t \ \xbk
 $$
-
 
 
 __Standard capital adequacy ratio__
@@ -156,12 +172,14 @@ $$
 * $\xriskw$ is the effective average risk weight, an exogenous variable
 
 
-
-## Comfort (target) levels of CAR
-
+--------------------------------------------------------------------------------
 
 
-In the equilibrium (steady state), banks target a comfort level of CAR
+### Comfort (target) levels of CAR
+
+
+
+In equilibrium (steady state), banks target a comfort level of CAR
 
 $$
 \xcar \longrightarrow \xcartar
@@ -172,12 +190,18 @@ $$
 \xcartar = \xcarmin + \xcarexc
 $$
 
+where
+
 * $\xcarmin$ is the regulatory minimum including regulatory buffers
-* $\xcarexc$ is the excess capital target above the regulatory minimum targeted by banks. Banks are motivated to hold excess capital to avoid approaching regulatory minimum in case of unexpected adverse shocks.
+
+* $\xcarexc$ is the excess capital target above the regulatory minimum
+  targeted by banks. Banks are motivated to hold excess capital to avoid
+  approaching regulatory minimum in case of unexpected adverse shocks.
 
 
+--------------------------------------------------------------------------------
 
-## Internal capital flows (Period profit/loss)
+### Internal capital flows (Period profit/loss)
 
 Components of period profit/loss
 
@@ -202,15 +226,23 @@ $$
 $$
 
 
+--------------------------------------------------------------------------------
 
-## External capital flows
+
+### External capital flows
 
 
 
 Switch between two extreme cases
 
-* $c_1 \to 0$ External capital flows do not respond to fluctuations in capital adequacy ratio. Bank owners do not adjust external flows (e.g. dividends) based on the current profit/loss at all.
-* $c_1 \to 1$ External capital flows bring capital adequacy ratio to its target level at all times. Bank owners adjust external flows (e.g. cut dividends, add capital) to always ensure $\xcar = \xcartar$.
+* $c_1 \to 0$ External capital flows do not respond to fluctuations in
+  capital adequacy ratio. Bank owners do not adjust external flows (e.g.
+  dividends) based on the current profit/loss at all.
+
+* $c_1 \to 1$ External capital flows bring capital adequacy ratio to its
+  target level at all times. Bank owners adjust external flows (e.g. cut
+  dividends, add capital) to always ensure $\xcar = \xcartar$.
+
 
 $$
 \left(1 - c_1\right)\left(
@@ -221,23 +253,30 @@ c_1 \left( \xcar - \xcartar \right) = 0
 $$
 
 
+--------------------------------------------------------------------------------
 
-## Feedback to bank lending
+
+### Feedback to bank lending
 
 __Capital adequacy risk surcharge__
 
-Negative shocks can push the the actual CAR $car_t$ below the optimal level $car^{tar}$. If $\xcar$ approaches regulatory minimum $\xcarmin$, capital shortfall triggers increase in capital adequacy risk surcharge $rx_t$. The surcharge is added to the lending rates as the bank attempts to increase profitability as well as reduce lending to shrink its balance sheet.
+Negative shocks can push the the actual CAR $car_t$ below the optimal level
+$car^{tar}$. If $\xcar$ approaches regulatory minimum $\xcarmin$, capital
+shortfall triggers increase in capital adequacy risk surcharge $rx_t$. The
+surcharge is added to the lending rates as the bank attempts to increase
+profitability as well as reduce lending to shrink its balance sheet.
 
 * $\xcar < \xcartar$ Tighter lending conditions: Increase spreads, reduce leverage
 
 * $\xcar > \xcartar$ Lax lending conditions: Reduce spreads, expand balance sheets
 
 
+--------------------------------------------------------------------------------
 
-__Nonlinear function__
+### Functional form of risk surcharge
 
-The risk surcharge is a non-linear function of the distance to regulatory capital shortfall (distance to $\xcarmin$)
-
+The risk surcharge is a non-linear function of the distance to regulatory
+capital shortfall (distance to $\xcarmin$)
 
 
 $$
@@ -261,5 +300,7 @@ $$
 
 The same non-linear function (with different parameterization) is used to link probability of default to macroeconomic conditions.
 
----
+
+--------------------------------------------------------------------------------
+
 
