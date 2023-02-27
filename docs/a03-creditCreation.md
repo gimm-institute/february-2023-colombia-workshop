@@ -5,19 +5,18 @@
 
 
 $$
-\def\xhspace{\hspace{0.05em}}
-\def\xy{\mathit{y}}
-\def\xpy{\mathit{py}}
-\def\xnewl{\mathit{l\xhspace}^{\Delta}}
-\def\xivy{\mathit{\imath vy\xhspace}}
-\def\xtrn{\mathit{trn\xhspace}}
-\def\xshock#1{\varepsilon_{#1}}
-\def\xyfwl{\mathit{fwy}}
-\def\xss{\mathrm{ss}}
-\def\xtnd{\mathrm{tnd}}
-\def\xlc{r^\mathrm{cond}}
-\def\xl{\mathit{l}}
-\def\xny{\mathit{ny}}
+\gdef\xhspace{\hspace{0.05em}}
+\gdef\xy{\mathit{y}}
+\gdef\xpy{\mathit{py}}
+\gdef\xnewl{\mathit{l\xhspace}^{\Delta}}
+\gdef\xivy{\mathit{\imath vy\xhspace}}
+\gdef\xtrn{\mathit{trn\xhspace}}
+\gdef\xyfwl{\mathit{fwy}}
+\gdef\xss{\mathrm{ss}}
+\gdef\xtnd{\mathrm{tnd}}
+\gdef\xlc{r^\mathrm{cond}}
+\gdef\xl{\mathit{l}}
+\gdef\xny{\mathit{ny}}
 \notag
 $$
 
@@ -91,7 +90,7 @@ In the model, the index of overall lending conditions is calculated as follows:
 New credit is demanded to finance current period's transactions
 
 $$
-\xnewl_t = \xivy_t \cdot \xtrn_t \cdot \exp \xshock{t,\,l\Delta}
+\xnewl_t = \xivy_t \cdot \xtrn_t \cdot \exp \varepsilon{t,\,l\Delta}
 $$
 
 where
@@ -99,7 +98,7 @@ where
 * $\xnewl_t$ is new credit
 * $\xivy_t$ is the inverse velocity of new credit
 * $\xtrn_t$ is the value of all the transactions that need financing
-* $\xshock{t,\,l\Delta}$ is a shock to new credit
+* $\varepsilon{t,\,l\Delta}$ is a shock to new credit
 
 In the real world, current period's transactions are financed by combining new credit and money already existing (arising in credit creation in past
 periods).
@@ -132,7 +131,7 @@ $$
 & - \ c_1 \cdot \xlc_t \\[5pt]
 & + \ c_2 \cdot \left( \left[ \tfrac{\xl}{4\xny} \right]_t
 \ -\ {\left[ \tfrac{\xl}{4\xny} \right]}_t^\xtnd \right) \\[5pt]
-& + \ \xshock{t,\xivy}
+& + \ \varepsilon{t,\xivy}
 \end{aligned}
 $$
 
