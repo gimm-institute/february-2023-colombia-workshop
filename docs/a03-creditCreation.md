@@ -90,7 +90,7 @@ In the model, the index of overall lending conditions is calculated as follows:
 New credit is demanded to finance current period's transactions
 
 $$
-\xnewl_t = \xivy_t \cdot \xtrn_t \cdot \exp \varepsilon{t,\,l\Delta}
+\xnewl_t = \xivy_t \cdot \xtrn_t \cdot \exp \varepsilon_{t,\,l\Delta}
 $$
 
 where
@@ -98,7 +98,7 @@ where
 * $\xnewl_t$ is new credit
 * $\xivy_t$ is the inverse velocity of new credit
 * $\xtrn_t$ is the value of all the transactions that need financing
-* $\varepsilon{t,\,l\Delta}$ is a shock to new credit
+* $\varepsilon_{t,\,l\Delta}$ is a shock to new credit
 
 In the real world, current period's transactions are financed by combining new credit and money already existing (arising in credit creation in past
 periods).
@@ -131,7 +131,7 @@ $$
 & - \ c_1 \cdot \xlc_t \\[5pt]
 & + \ c_2 \cdot \left( \left[ \tfrac{\xl}{4\xny} \right]_t
 \ -\ {\left[ \tfrac{\xl}{4\xny} \right]}_t^\xtnd \right) \\[5pt]
-& + \ \varepsilon{t,\xivy}
+& + \ \varepsilon_{t,\xivy}
 \end{aligned}
 $$
 
