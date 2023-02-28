@@ -20,22 +20,6 @@ $$
 \notag
 $$
 
-
---------------------------------------------------------------------------------
-
-
-### Overview
-
-
-* Causality between Credit and Macroeconomic Activity
-
-* Demand for New Credit
-
-* Current Transactions and Inverse Velocity
-
-* Deleveraging
-
-
 --------------------------------------------------------------------------------
 
 

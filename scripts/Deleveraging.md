@@ -33,5 +33,5 @@ Scenario    | Credit to GDP
 ------------|------:
 Harmless    |  –5pp 
 Severe      | –10pp
-Devastating | –20pp
+Devastating | –15pp
 

@@ -69,6 +69,34 @@ and is given by the proportion of the performing loan portfolio, $\lp$, to which
 the new loans.
 
 
+--------------------------------------------------------------------------------
+
+
+### Lending rates in real world
+
+New lending rates affected by the anticipation of three types of risks
+
+* **Interest rate risk**: today's and future changes in short term rates
+  may make the funding costs of fixed rate contracts increase
+
+* **Borrower credit risk**: today's and future credit events (changes in
+  frequency of) may reduce profits from the contracts
+
+* **Bank capital adequacy risk**: today's and future likelihood of
+  regulatory capital shortfall, capital stress
+
+
+For a number of reasons, these two types of risks are not always passed
+through on to lending rates fully.
+
+The observed lending rates typically only reflect the anticipated risks
+partially.
+
+The remaining part of the risk (that is not priced in the lending rates) is
+expressed in (unobservable) new non-price lending conditions.
+
+
+
 
 ## Forward-looking cost-plus loan pricing
 
@@ -96,7 +124,8 @@ The new lending rates respond to four components of bank costs
 
 ### Expected funding costs depending on lending rate fixation
 
-The lending rate fixation period is approximated at a portfolio segment level using the average lending rate fixation period $\xpsirl$.
+The lending rate fixation period is approximated at a portfolio segment
+level using the average lending rate fixation period $\xpsirl$.
 
 
 
@@ -194,6 +223,7 @@ $$
 The hypothetical full-cost rate $\xnewrlfull$ enters the aggregate demand and credit demand equations, as it represents the true cost of credit for borrowers. 
 
 The observed lending rate $\xnewrl$ enters the bank profits calculations.
+
 
 
 

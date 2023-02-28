@@ -4,31 +4,17 @@
 ![[title-page.md]]
 
 $$
-\newcommand{\xrl}[t]{\mathit{r}_{L,#1}}
-\newcommand{\xrd}[1][t]{\mathit{r}_{D,#1}}
-\newcommand{\xrbench}[1][t]{r^\star_{#1}}
-\newcommand{\xlgd}{\lambda}
-\newcommand{\xclr}[1][t]{q_{#1}}
-\newcommand{\xE}[1]{\mathrm{E}_t\!\Bigl[ #1 \Bigr]}
-\newcommand{\xrepay}[1][t]{\theta}
-\newcommand{\xfixl}{\psi_L}
-\newcommand{\xshock}{\epsilon}
-\newcommand{\xnewrl}[1][t]{\mathit{r}^\Delta_{L,#1}}
-\newcommand{\xnewrlfull}[1][t]{\mathit{r}^{\Delta\mathrm{full}}_{L,#1}}
-\newcommand{\xnewrlpart}[1][t]{\mathit{r}^{\Delta\mathrm{part}}_{L,#1}}
-\newcommand{\xdiscx}[2]{\delta^{\star}_{#1, #2}}
-\newcommand{\xdiscxfull}[2]{\delta_{#1, #2}^{\star\mathrm{full}}}
-\newcommand{\xdiscxpart}[2]{\delta_{#1, #2}^{\star\mathrm{part}}}
-\newcommand{\xDISCx}[1][t]{\Delta_{#1}^{\star}}
+\newcommand{\xtnd}{\mathrm{tnd}}
+\newcommand{\xcdot}{\,\cdot\,}
 \notag
 $$
 
 --------------------------------------------------------------------------------
 
 
-## Feedback through credit risk
+### Feedback through credit risk
 
-Credit risk creates several feedback loops and linkages in the model:
+Credit risk creates several types of feedback linkages in the model:
 
 * Current credit events impair loan performance: allowances, write-offs, losses, capital deterioration
 
@@ -42,7 +28,7 @@ Credit risk creates several feedback loops and linkages in the model:
 
 
 
-## Summary of credit risk feedback elements
+### Summary of credit risk feedback elements
 
 
 
@@ -58,66 +44,7 @@ Credit risk creates several feedback loops and linkages in the model:
 --------------------------------------------------------------------------------
 
 
-## Expected and unexpected losses
-
-
-* Allowances (contra-asset) to cover expected losses (mean values)
-
-* Capital (equity) to cover so-called unexpected losses
-
-
-
---------------------------------------------------------------------------------
-
-
-## Lending spreads, credit risk and allowances
-
-
-In theory, the expected credit losses are covered fully by the lending
-spread if priced correctly $\to$ allowances would not be needed.
-
-
-In the real world
-
-* Lending spreads are far from being priced to fully/perfectly accommodate true risk: partly mismeasurement/misjudgment, partly a deliberate choice by banks (strategic behavior)
-
-* Fixed rate loans cannot be repriced with new information arriving and expected loss revisions
-
-* Observed (market) lending rates do not sufficiently compensate for expected credit losses
-
-
---------------------------------------------------------------------------------
-
-
-## Lending rates in real world
-
-New lending rates affected by the anticipation of three types of risks
-
-* **Interest rate risk**: today's and future changes in short term rates
-  may make the funding costs of fixed rate contracts increase
-
-* **Borrower credit risk**: today's and future credit events (changes in
-  frequency of) may reduce profits from the contracts
-
-* **Bank capital adequacy risk**: today's and future likelihood of
-  regulatory capital shortfall, capital stress
-
-
-For a number of reasons, these two types of risks are not always passed
-through on to lending rates fully.
-
-The observed lending rates typically only reflect the anticipated risks
-partially.
-
-The remaining part of the risk (that is not priced in the lending rates) is
-expressed in (unobservable) new non-price lending conditions.
-
-
-
---------------------------------------------------------------------------------
-
-
-## Credit risk function
+### Credit risk function
 
 
 * Implicitly based on Basel asymptotic single risk factor approach
@@ -143,7 +70,7 @@ $$
 --------------------------------------------------------------------------------
 
 
-## Role of credit risk in the model
+### Places where the portfolio default rates enter the model
 
 
 * Actual performance of the existing loan portfolio
@@ -154,7 +81,7 @@ $$
 --------------------------------------------------------------------------------
 
 
-## Key conceptual properties of credit risk function
+### Key properties of credit risk function
 
 
 * Nonlinear and asymmetric
@@ -168,11 +95,19 @@ $$
 * Conversely, exceptionally good times reduce defaults to a much smaller
   extent
 
+* Lower and upper bounds different from $[0,\, 1]$: Autonomous defaults,
+  technical maximum
 
 --------------------------------------------------------------------------------
 
+### Example shape
 
-## Functional form
+![Portfolio default rate function](portfolio-default-rate-func.png)
+
+
+--------------------------------------------------------------------------------
+
+### Functional form
 
 
 * Five-parameter generalized logistic function
@@ -194,24 +129,25 @@ $$
 
 --------------------------------------------------------------------------------
 
-## Macro conditions index
+### Macro conditions index
 
 
 The portfolio segment specific macro conditions index combines
 
-* current macro performance: output gap
+* **current** macro performance: output gap
 
-* borrower vulnerability: annualized credit (loans) to GDP ratio
+* borrower **vulnerability**: annualized credit (loans) to GDP ratio
 
 
-Constructed in deviations from the long-run sustainability trends
+Constructed as a weighted average of (percent/percentage point) deviations from the long-run sustainability trends
 
 $$
-z_t^k \ =\ 
-\left( \log y_t - \log \overline y_t \right)
+z_t \ =\ 
+( 1 - c_1) \
+\Bigl( \log y_t - \log \overline y_t \Bigr)
 \ - \ c_1 \left( 
-\left[ \tfrac{l^k}{4 \ py \ fwy} \right]_t 
-- \overline{\left[ \tfrac{l^k}{4\ py \ y}\right]}_t
+\left[ \tfrac{l}{4 \xcdot py \xcdot fwy} \right]_t 
+- \left[ \tfrac{l}{4\xcdot py \xcdot y}\right]^\xtnd_t
 \right)
 $$
 

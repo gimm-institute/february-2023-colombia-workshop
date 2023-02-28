@@ -69,7 +69,6 @@
     "A/R GDP Gap" c0_y_gap
     "GDP gap to future income proxy" c1_y_gap
     "GDP gap to real short-term rate" c2_y_gap
-    "GDP gap to new lending conditions" c3_y_gap
     "GDP gap to real exchange rate gap" c4_y_gap
     "GDP gap to foreign demand" c5_y_gap
 
@@ -92,7 +91,6 @@
     "A/R Real short-term rate trend" c0_rr_tnd
 
     "Weight on model-consistent expectations in exchange rate expectations" c1_e_exp
-    "Response in interest disparity to lending conditions" c1_prem
     "A/R Autonomous cyclical component in interest disparity" c0_prem_gap
 
     "A/R Real exchange rate trend" c0_roc_re_tnd
@@ -101,6 +99,12 @@
     "A/R Stress scenario factor" c0_x
 
     "Floor for the policy rate" r_floor
+
+
+!parameters(:macro :feedback)
+
+    "GDP gap to new lending conditions" c3_y_gap
+    "Response in interest disparity to lending conditions" c1_prem
 
 
 !shocks(:macro)

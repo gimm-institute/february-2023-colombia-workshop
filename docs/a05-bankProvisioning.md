@@ -1,9 +1,46 @@
-### Stock-flow dynamics in allowances
+### Provisioning
+
+![[title-page.md]]
+
+
+--------------------------------------------------------------------------------
+
+
+### Expected and unexpected losses
+
+
+* Allowances (contra-asset) to cover expected losses (mean values)
+
+* Capital (equity) to cover so-called unexpected losses
+
+
+--------------------------------------------------------------------------------
+
+
+### Lending spreads, credit risk and allowances
+
+
+In theory, the expected credit losses are covered fully by the lending
+spread if priced correctly $\to$ allowances would not be needed.
+
+
+In the real world
+
+* Lending spreads are far from being priced to fully/perfectly accommodate true risk: partly mismeasurement/misjudgment, partly a deliberate choice by banks (strategic behavior)
+
+* Fixed rate loans cannot be repriced with new information arriving and expected loss revisions
+
+* Observed (market) lending rates do not sufficiently compensate for expected credit losses
+
+--------------------------------------------------------------------------------
 
 
 ![Stock-flow dynamics in allowances](allowances-stock-flow.png)
 
 ### Two types of allowances
+
+
+--------------------------------------------------------------------------------
 
 Two types of allowances are considered in the model
 

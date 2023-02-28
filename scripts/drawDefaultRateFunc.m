@@ -11,7 +11,7 @@ function curveH = drawDefaultRateFunc(axesH, model)
     curveH = plot(axesH, 100*z, 100*q);
     set(axesH, "yLim", [0.5, 5.5], "xLim", 100*z([1,end]), "fontSize", 20);
 
-    title(axesH, "Credit portofolio default function");
+    title(axesH, "Portofolio default rate function");
     xlabel(axesH, "Macroeconomic conditions index [%]");
     ylabel(axesH, "Portfolio default rate [%]");
 

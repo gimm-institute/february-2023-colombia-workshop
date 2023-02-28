@@ -101,7 +101,6 @@
         !! l_to_4ny_? = ss_l_to_4ny_?;
 
 
-
         "New credit creation, ?"
         log(new_l_?) = ...
             ... + log(ivy_? * trn_avg_?) ...
