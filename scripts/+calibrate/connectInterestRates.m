@@ -1,7 +1,6 @@
 
 function x = connectInterestRates(x)
 
-    x.c1_rona = 0;
     x.ss_cap_hh = 2;
     x.c1_new_rl_full_hh = 0;
     x.c1_new_rl_cap_hh = 20;
@@ -31,7 +30,8 @@ function x = connectInterestRates(x)
     x.c0_rl_apm_hh = 0.9;
     x.c0_rl_apm_nfc = 0.9;
 
-    x.ss_rona_spread = 4/400;
+    x.ss_rona_spread = -3/400;
+    % x.ss_rona_spread = 0/400;
 
 
     %=================================================

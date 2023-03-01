@@ -81,7 +81,7 @@
     !end
     prof_int_loans := (!for <segments> !do + $prof_int_loans_?$ !end);
 
-    % prof_prov := (!for <segments> !do - (af_? - af_?{-1} + woff_?) !end);
+%     prof_prov := (!for <segments> !do - (af_? - af_?{-1} + woff_?) !end);
     prof_prov := (!for <segments> !do - (ap_? - ap_?{-1} + woff_?) !end);
 
     prof_val_ass := (!for <segments> !do + l_?{-1}*(j_? - 1) !end);
@@ -122,6 +122,7 @@
     % Financial bank capital
     log(bk) = log(bk{-1}) ...
         + log(&roc_ny) ...
+        ... + log(exp(floor_rbk*100) + exp((rbk-&rbk)*100))/100 - log(exp(floor_rbk*100) + 1)/100 ...
         + log(1 + rbk - &rbk) ... 
         - c1_bk*(car{+8} - car_tar{+8}) ...
     !! bg = car_tar * riskw * tna;

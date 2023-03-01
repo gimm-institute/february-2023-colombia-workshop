@@ -16,7 +16,6 @@
 !parameters(:interestRates)
 
     ss_rona_spread
-    c1_rona
 
 
 !parameters(:stress)
@@ -53,8 +52,7 @@
 
     "Return on other net assets"
     rona = ...
-        + rp_lcy - rona_spread ...
-        + c1_rona * (roc_fwy - &roc_fwy) ...
+        + rp_lcy + rona_spread ...
         + shock_rona - cx_rona * x;
 
 

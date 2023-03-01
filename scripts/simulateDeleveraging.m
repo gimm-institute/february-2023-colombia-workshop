@@ -60,9 +60,10 @@ load mat/createModel.mat m
 
 down = [0.05, 0.10, 0.15];
 
-m1 = alter(m, numel(down));
+m1 = alter(m, 3);
 
-m1.ss_l_to_4ny_hh  = m1.ss_l_to_4ny_hh - down;
+m1.ss_l_to_4ny_hh  = m1.ss_l_to_4ny_hh - [0.05, 0.10, 0.15];
+
 
 m1 = steady(m1);
 checkSteady(m1);
@@ -71,7 +72,7 @@ m1 = solve(m1);
 
 %% Run simulation
 
-d1 = steadydb(m, -10:40);
+d1 = databank.forModel(m, -10:40);
 
 s1 = simulate( ...
     m1, d1, 1:40 ...

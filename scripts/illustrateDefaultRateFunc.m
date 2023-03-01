@@ -33,3 +33,4 @@ xline(0, "color", 0.6*[1,1,1], "lineWidth", 5);
 set(gca(), "yLim", [0.5, 5.5], "xLim", 100*z([1,end]), "fontSize", 14);
 
 print -dpng ../docs/portfolio-default-rate-func.png
+

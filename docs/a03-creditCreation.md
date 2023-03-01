@@ -151,7 +151,7 @@ flows, i.e. new loans; simplified dynamics with no defaults and no foreign
 currency denomination:
 
 $$
-\xl{t} = \left( 1 - \theta \right) \xl{t-1} + \xnewl_t
+\xl_{t} = \left( 1 - \theta \right) \xl_{t-1} + \xnewl_t
 $$
 
 Reductions in new loans are trigerred by tighter lending conditions and

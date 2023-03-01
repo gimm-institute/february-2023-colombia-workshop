@@ -139,9 +139,64 @@ $$
 
 * $\xbk$ is bank capital (balance sheet capital)
 
-* $\xprof$ is an internal flow of capital (profit or loss, PnL) recorded on the closing balance of the balance sheets at $t-1$ and credit events throughout $t$
+* $\xprof$ is an internal flow of capital (retained profit or loss, PnL) recorded on the closing balance of the balance sheets at $t-1$ and credit events throughout $t$
 
 * $\xxcf$ is an external flow of capital throughout $t$: dividends paid out (–), new equity issuance (+), equity withdrawals by parents (–), recapitalization flows (+), etc.
+
+
+--------------------------------------------------------------------------------
+
+### Internal capital flows (Period profit/loss)
+
+Components of period profit/loss
+
+* Interest income on loans (by segments)
+* Income on other assets
+* Interest expense on non-equity liabilities (by currency of denomination)
+* Provisioning and write-offs
+* Exchange rate valuation
+* Other net income (proxy for fees, commissions, labor costs, etc.)
+
+
+$$
+\begin{aligned}
+\xprof &= \sum  \xrl[t-1]^{\,k} \left( \xlpo{t}{k}
++ \xlncok[t]{k} \right) 
+\\[10pt] & +\ \xrona[t-1]\, \xona[t-1] 
+% \\[10pt] & + \xfnc \ \xnewl{t}{k}
+\\[10pt] & -\ \xrd[t-1]^{\,\xlcy}\xdo{t}{\,\xlcy}-\xrd[t-1]^ {\,\xfcy}\xdo{t}{\,\xfcy}
+\\[10pt] & -\ \sum \left( a_t^k - a_{t-1}^k + w_t^k \right)
+\\[10pt] & +\ \sum \xl[t-1]^{\,k}\left(j_t-1\right) \ -\ \xd[t-1]^{\,\xfcy}\,\left( \frac{\xe}{\xe[t-1]} - 1 \right) \\[10pt]
+& +\ c_1 \cdot tna_{t-1}
+\end{aligned}
+$$
+
+
+--------------------------------------------------------------------------------
+
+
+### External capital flows
+
+
+
+Switch between two extreme cases
+
+* $c_1 \to 0$ External capital flows do not respond to fluctuations in
+  capital adequacy ratio. Bank owners do not adjust external flows (e.g.
+  dividends) based on the current profit/loss at all.
+
+* $c_1 \to 1$ External capital flows bring capital adequacy ratio to its
+  target level at all times. Bank owners adjust external flows (e.g. cut
+  dividends, add capital) to always ensure $\xcar = \xcartar$.
+
+
+$$
+\left(1 - c_1\right)\left(
+\left[ \frac{\xxcf[]}{\xbk[]} \right]_t -
+\left[ \frac{\xxcf[]}{\xbk[]} \right]_\xss
+\right) -
+c_1 \left( \xcar - \xcartar \right) = 0
+$$
 
 
 --------------------------------------------------------------------------------
@@ -166,7 +221,7 @@ $$
 __Standard capital adequacy ratio__
 
 $$
-\xcar = \frac{\xregk}{\xriskw \ \xl}
+\xcar = \frac{\xregk}{\xriskw \cdot \left[ \left(\xl - a_t\right) + ona_t \right]}
 $$
 
 * $\xriskw$ is the effective average risk weight, an exogenous variable
@@ -197,60 +252,6 @@ where
 * $\xcarexc$ is the excess capital target above the regulatory minimum
   targeted by banks. Banks are motivated to hold excess capital to avoid
   approaching regulatory minimum in case of unexpected adverse shocks.
-
-
---------------------------------------------------------------------------------
-
-### Internal capital flows (Period profit/loss)
-
-Components of period profit/loss
-
-* Interest income on loans (by segments)
-* Income on other assets
-* Interest expense on non-equity liabilities (by currency of denomination)
-* Other income (proxy for fees, commissions, etc)
-* Provisioning and write-offs
-* Exchange rate valuation
-
-
-$$
-\begin{aligned}
-\xprof &= \sum  \xrl[t-1]^{\,k} \left( \xlpo{t}{k}
-+ \xlncok[t]{k} \right) 
-\\[10pt] & +\ \xrona[t-1]\, \xona[t-1] 
-\\[10pt] & + \xfnc \ \xnewl{t}{k}
-\\[10pt] & -\ \xrd[t-1]^{\,\xlcy}\xdo{t}{\,\xlcy}-\xrd[t-1]^ {\,\xfcy}\xdo{t}{\,\xfcy}
-\\[10pt] & -\ \sum \left( a_t^k - a_{t-1}^k + w_t^k \right)
-\\[10pt] & +\ \sum \xl[t-1]^{\,k,fcy}(j_t-1) \ -\ \xd[t-1]^{\,\xfcy}\left( \frac{\xe}{\xe[t-1]} - 1 \right)
-\end{aligned}
-$$
-
-
---------------------------------------------------------------------------------
-
-
-### External capital flows
-
-
-
-Switch between two extreme cases
-
-* $c_1 \to 0$ External capital flows do not respond to fluctuations in
-  capital adequacy ratio. Bank owners do not adjust external flows (e.g.
-  dividends) based on the current profit/loss at all.
-
-* $c_1 \to 1$ External capital flows bring capital adequacy ratio to its
-  target level at all times. Bank owners adjust external flows (e.g. cut
-  dividends, add capital) to always ensure $\xcar = \xcartar$.
-
-
-$$
-\left(1 - c_1\right)\left(
-\left[ \frac{\xxcf[]}{\xbk[]} \right]_t -
-\left[ \frac{\xxcf[]}{\xbk[]} \right]_\xss
-\right) -
-c_1 \left( \xcar - \xcartar \right) = 0
-$$
 
 
 --------------------------------------------------------------------------------
@@ -286,7 +287,7 @@ $$
 $$
 
 
-![rx_fuction](rx_fuction.png)
+![Capital adequacy stress function](capital-adequacy-stress-func.png)
 
 
 
@@ -297,8 +298,6 @@ $$
 | $\nu$            | Shape parameter: makes the curve asymmetric, heavy left/heavy right |
 | $\underline rx$  | Lower bound                                                  |
 | $\overline rx$   | Upper bound                                                  |
-
-The same non-linear function (with different parameterization) is used to link probability of default to macroeconomic conditions.
 
 
 --------------------------------------------------------------------------------
