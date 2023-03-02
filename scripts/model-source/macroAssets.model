@@ -5,7 +5,6 @@
 
     "Real future income proxy" fwy_fund
     "Actual real market valuation of assets" fwy
-    "Actual real market valuation of assets, Rate of change" roc_fwy
     "Bubble in market valuation of assets" fwy_bubble
 
 
@@ -45,12 +44,5 @@
         + shock_fwy_bubble ...
         - cx_fwy_bubble * x ...
     !! fwy_bubble = 1;
-
-
-% Rates of change
-
-    !for fwy !do
-        roc_? = ? / ?{-1};
-    !end
 
 

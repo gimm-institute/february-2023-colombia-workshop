@@ -1,7 +1,7 @@
 
 # Credit creation and deleveraging
 
-![[title-page.md]]
+![[title-page]]
 
 
 $$

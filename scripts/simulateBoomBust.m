@@ -94,6 +94,25 @@ s4 = simulate( ...
     , plan=p4 ...
 );
 
+%% Bust with CCY buffers, late response
+
+p5 = Plan.forModel(m, T+1:40, "anticipate", false);
+p5 = swap(p5, T+1, ["fwy_bubble", "shock_fwy_bubble"]);
+p5 = swap(p5, T+1, ["ivy_tnd_hh", "shock_ivy_tnd_hh"]);
+p5 = swap(p5, T+4, ["car_min", "shock_car_min"]);
+
+d5 = s2;
+d5.fwy_bubble(T+1) = 1;
+d5.ivy_tnd_hh(T+1) = real(m.ivy_hh);
+d5.car_min(T+4) = m.ss_car_min;
+
+s5 = simulate( ...
+    m, d5, T+1:40 ...
+    , prependInput=true ...
+    , method="stacked" ...
+    , plan=p5 ...
+);
+
 
 %% Simulation minus control databanks
 
@@ -101,6 +120,7 @@ smc1 = databank.minusControl(m, s1, d0);
 smc2 = databank.minusControl(m, s2, d0);
 smc3 = databank.minusControl(m, s3, d0);
 smc4 = databank.minusControl(m, s4, d0);
+smc5 = databank.minusControl(m, s5, d0);
 
 
 
@@ -111,11 +131,11 @@ ch = defineChartpack();
 ch.FigureTitle = "Asset price and credit boom-bust: " + ch.FigureTitle;
 ch.Range = 0:40;
 ch.Highlight = 0:T;
-ch.FigureExtras = { @(h) visual.hlegend("bottom", "Boom-bust") };
-draw(ch, smc3);
 
-ch.FigureExtras = { @(h) visual.hlegend("bottom", "Boom-bust", "Boom-bust with CCY buffers") };
-draw(ch, databank.merge("horzcat", smc3, smc4));
+draw(ch, databank.merge("horzcat", smc3, smc4, smc5));
+
+
+
 
 
 %% Save results to MAT file for further use

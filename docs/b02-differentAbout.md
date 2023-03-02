@@ -1,7 +1,7 @@
 
 # What's different about modeling finstab and macropru?
 
-![[title-page.md]]
+![[title-page]]
 
 ---
 

@@ -1,9 +1,10 @@
 
 # Lending and funding rates
 
+![[title-page]]
+
 $$
 \newcommand{\loan}{l}
-\newcommand{\xnewrl}[t]{rl^\Delta_{#1}}
 \newcommand{\xnewrd}[1][t]{rd^\Delta_{#1}}
 \newcommand{\xnewrlone}[1][t]{rl^{\Delta s1}_{#1}}
 \newcommand{\xrl}[1][t]{rl_{#1}}
@@ -13,7 +14,6 @@ $$
 \newcommand{\lp}[1][t]{\loan p_{#1}}
 \newcommand{\lpo}[1][t]{\loan p^0_{#1}}
 \newcommand{\newl}[1][t]{\loan^\Delta_{#1}}
-\newcommand{\xbase}{\mathrm{base}}
 \newcommand{\xicr}{\mathrm{icr}}
 \newcommand{\xnewrlbase}[1][t]{rl^{\Delta\xbase}_{#1}}
 \newcommand{\xnewrdbase}[1][t]{rd^{\Delta\xbase}_{#1}}
@@ -22,26 +22,29 @@ $$
 \newcommand{\xpvxbase}[1][t]{pvx^\xbase_{#1}}
 \newcommand{\xpvpbase}[1][t]{pvp^\xbase_{#1}}
 \newcommand{\xpvnbase}[1][t]{pvn^\xbase_{#1}}
-\newcommand{\xfcy}{\mathrm{fcy}}
-\newcommand{\xlcy}{\mathrm{lcy}}
 \newcommand{\xrlapm}[1][t]{rl_{#1}^\mathrm{apm}}
 \newcommand{\xpsirl}[1][t]{\psi_{rl}}
-\newcommand{\xapm}{\mathrm{apm}}
-\newcommand{\xfull}{\mathrm{full}}
 \newcommand{\xnewrlfull}[1][t]{rl^{\Delta\xfull}_{#1}}
 \newcommand{\xss}{\mathrm{ss}}
+\newcommand{\xfull}{\mathrm{full}}
+\newcommand{\xbase}{\mathrm{base}}
+\newcommand{\xfcy}{\mathrm{fcy}}
+\newcommand{\xlcy}{\mathrm{lcy}}
+\newcommand{\xapm}{\mathrm{apm}}
+\newcommand{\xnewrl}[1][t]{rl^\Delta_{#1}}
 \notag
 $$
 
+--------------------------------------------------------------------------------
 
-
-## Stock-flow dynamics in lending rates
+### Stock-flow dynamics in lending rates
 
 
 
 ![Stock-flow dynamics in lending rates](lending-rates-stock-flow.png)
 
 
+--------------------------------------------------------------------------------
 
 ### Stock-flow relationship in lending rates
 
@@ -54,9 +57,8 @@ Each period, a lending rate on newly issued credit ("new lending rate") $\xnewrl
 The effective rate that determines the interest income on the stock of outstanding loans, called the stock lending rate, $\xrl$, is given by
 $$
 \xrl = 
-\xrl[t-1] + \
-\Omega_{t}\ ( \xnewrl[t] - \xrl[t-1] )
-+ \epsilon_{\xrl[],t}
+\left(1 - \Omega_t\right) \cdot \xrl[t-1] + \
+\Omega_{t}\cdot \xnewrl[t] 
 $$
 
 where $\Omega_{t} \in \left(0, \ 1 \right]$ is a (time-varying) share of new lending rates in the updated effective stock rates
@@ -97,14 +99,17 @@ expressed in (unobservable) new non-price lending conditions.
 
 
 
+--------------------------------------------------------------------------------
 
-## Forward-looking cost-plus loan pricing
+### Forward-looking cost-plus loan pricing
 
 
 
 ![Forward-looking cost-plus loan pricing](new-lending-conditions.png)
 
 
+
+--------------------------------------------------------------------------------
 
 ### Forward-looking cost-plus loan pricing
 
@@ -121,6 +126,7 @@ The new lending rates respond to four components of bank costs
 [^1]: Lending rate fixation
 
 
+--------------------------------------------------------------------------------
 
 ### Expected funding costs depending on lending rate fixation
 
@@ -129,76 +135,71 @@ level using the average lending rate fixation period $\xpsirl$.
 
 
 
-##### Short-term base rate
+**Short-term base rate**
 
-The short term base rate comprises
-
-* the marginal cost of funding liabilities, $rs_t$
-* the cost of bank capital, $rx_t$
-* an autonomous profit margin, $rl_t^{\Delta\xapm}$
-
-
+The short term base rate derives from the money market (or policy) rate, depending on the LCY vs FCY denomination of the respective portfolio segment:
 
 $$
-% \xnewrlbase = (1-\sigma) \ \xrs^\xlcy + \sigma \ \xrs^\xfcy + rx_t
-% \xnewrlbase = \xrs + rx_t + rl_t^{\Delta\xapm}
-\xnewrlbase = \xrs +  rl_t^{\Delta\xapm}
-$$
-
-For dollarized loan segments, we take into account both LCY and FCY funding costs:
-$$
-rs_t = (1-\sigma) \ \xrs^\xlcy + \sigma \ \xrs^\xfcy
+r_t^{\Delta\xbase} = (1-\sigma) \ r_t + \sigma \ rw_t
 $$
 
 
 
-##### Forward-looking rate covering credit risk
+**Cost component 1: Short-term rate risk and credit risk**
 
-The hypothetical lending rate covering the full credit is given by
+The hypothetical lending rate covering the full credit risk is given by
 $$
-rl^{\Delta \xfull,1}_t = 
-(1-\Psi_1)\ \left[ 
+1 + rl^{\Delta 1}_t = 
+(1-\Psi)\ \mathrm E_t \biggl[ \ 
 \frac{1 + rl_t^{\Delta\xbase}}{1 - \lambda \ q_{t+1}}
-\ +\ \Psi_1\ \frac{1 + rl_{t+1}^{\Delta\xbase}}{1 - \lambda \ q_{t+2}}
-\ +\ \Psi_1^2\ \frac{1 + rl_{t+2}^{\Delta\xbase}}{1 - \lambda \ q_{t+3}}
+\ +\ \Psi\ \frac{1 + rl_{t+1}^{\Delta\xbase}}{1 - \lambda \ q_{t+2}}
+\ +\ \Psi^2\ \frac{1 + rl_{t+2}^{\Delta\xbase}}{1 - \lambda \ q_{t+3}}
 + \ \cdots\ 
-\right] + \epsilon^{rl\Delta\xfull, 1}_t
+\Bigr] 
 $$
 
 
 
 where
 $$
-\Psi_1 = \left( 1 - \psi_{rl,1} \right) \left( 1 - \theta \right)
+\Psi \equiv \left( 1 - \psi_{rl} \right) \left( 1 - \theta \right)
 $$
 
 is the effective discount factor applied on each future base cost
 
 
 
-**Forward-looking rate covering cost of bank capital**
+**Cost component 2: Bank capital cost**
 
 The cost of bank capital (capital shortfall stress) is also reflected in loan pricing given by
+
 $$
-rl^{\Delta \xfull,2}_t = 
-(1-\Psi_2)\ \left[ 
+1 + rl^{\Delta 2}_t = 
+(1-\Psi)\ \mathrm E_t \Bigl[ \
 (1 + rx_t)
-+\ \Psi_2 (1 + rx_t)
-+\ \Psi_2^2\ (1 + rx_{t+2})
-+ \ \cdots\ 
-\right] + \epsilon^{rl\Delta\xfull, 2}_t
++\ \Psi\ (1 + rx_{t+1})
++\ \Psi\ (1 + rx_{t+2})
++ \ \cdots \
+\Bigr] 
 $$
 
+<br/>
 
+**Cost component 3: Autonomous profit margins**
 
+Exogenous process $rl_t^{\Delta\mathrm{arm}}$
 
-**Forward-looking weighted average**
+<br/>
 
-Overall hypothetical lending rate reflecting all costs is given by
+**Hypothetical new lending rate covering all costs**
+
 $$
-1 + rl^{\Delta \xfull}_t = (1 + rl^{\Delta \xfull,1}_t) \cdot (1 + rl^{\Delta \xfull,2}_t)
+1 + rl^{\Delta \xfull}_t = (1 + rl^{\Delta \xfull,1}_t) \cdot (1 + rl^{\Delta \xfull,2}_t) \cdot (1 + rl^{\Delta \mathrm{arm}}_t)
 $$
 
+<br/>
+
+--------------------------------------------------------------------------------
 
 ##### Price and non-price lending conditions
 
@@ -218,45 +219,37 @@ $$
 +\ \left(1-c_1\right) \left( \xnewrlfull[\xss] - \xnewrlbase[\xss] \right)
 $$
 
-
+<br/>
 
 The hypothetical full-cost rate $\xnewrlfull$ enters the aggregate demand and credit demand equations, as it represents the true cost of credit for borrowers. 
 
 The observed lending rate $\xnewrl$ enters the bank profits calculations.
 
 
+--------------------------------------------------------------------------------
 
 
-## Stock-flow relationship in funding rates
+### Stock-flow relationship in funding rates
 
 The effective rate that determines the interest expense on the stock of
 non-equity liabilities, called the stock funding rate, $\xrd$, is given by
 $$
 \xrd = 
-\xrd[t-1] + 
-\psi_{rd} \ ( \xnewrd[t] - \xrd[t-1] )
+\left(1 - \psi_{rd} \right) \cdot \xrd[t-1] + 
+\psi_{rd} \cdot \xnewrd[t] 
 + \epsilon_{\xrd[],t}
 $$
 
 where $\psi_{rl} \in \left(0, \ 1 \right]$ is the effective impact of new funding rates on the stock rates, and is parameterized as an exogenous number.
 
 
+--------------------------------------------------------------------------------
 
-## New funding rates
+### New funding rates
 
-The new funding rates are set as a markdown (with a parameterized autonomous profit margin, $rd^\mathrm{apm}$) below the short-term cash rate (averaged across the currencies of denomination)
-$$
-\xnewrdbase = rs_t - rd^\xapm_t
-+ \epsilon_{rd\Delta, t}
-$$
+The new funding rates are set as a markdown (with a parameterized autonomous profit margin, $rd^\mathrm{apm}$) below the short-term cash rate 
 
 $$
-rs_t = (1-\sigma) \ \xrs^\xlcy + \sigma \ \xrs^\xfcy
+rd^\Delta_t = r_t - rd^\xapm_t
 $$
-
-
-
----
-
-
 

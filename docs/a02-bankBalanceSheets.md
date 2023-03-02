@@ -1,7 +1,7 @@
 
 # Bank balance sheets and asset performance
 
-![[title-page.md]]
+![[title-page]]
 
 
 $$

@@ -7,6 +7,8 @@
 
     "Total net assets" tna
     "Financial bank capital, closing" bk
+    "Financial bank capital, opening after profits" bk0
+    "Financial bank capital, closing, Rate of change" roc_bk
     "Regulatory capital" bg
     "Return on bank capital" rbk
     "Standard capital adequacy ratio" car, movavg_car
@@ -107,8 +109,8 @@
     !! ona = ss_ona_to_tna * tna;
 
 
-    % Return on bank capital
-    (rbk - shock_rbk + cx_rbk_x * x) * bk{-1} = ...
+    "Financial bank capital, opening after profits"
+    bk0 - bk{-1} = ...
         + $prof_int_loans$...    Interest income from loans
         + $prof_int_ona$ ...     Interest income from other net assets (securities)
         + $prof_other$ ...       Other net income
@@ -116,20 +118,21 @@
         + $prof_val_ass$...      Exchange rate valuation of assets
         + $prof_int_liab$...     Interest expense on liabilities
         + $prof_val_liab$...     Exchange rate valuation of liabilities
+        + (shock_rbk - cx_rbk_x * x) * bk{-1} ...
     ;
 
+    "Return on bank capital"
+    rbk = (bk0 - bk{-1}) / bk{-1};
 
     % Financial bank capital
-    log(bk) = log(bk{-1}) ...
-        + log(&roc_ny) ...
-        + log(1 + rbk - &rbk) ... 
+    log(bk) = log(bk{-1} * ((1 + rbk) + (&roc_bk - &rbk - 1))) ... 
         - c1_bk*(car{+8} - car_tar{+8}) ...
-    !! bg = car_tar * riskw * tna;
-
+    !! car = car_tar;
 
     % External capital flows
-    xcf_to_bk = (bk - bk{-1}*(1 + rbk)) / bk{-1};
+    xcf_to_bk = (bk - bk0) / bk0;
 
+    roc_bk = roc(bk);
 
     % Regulatory bank capital
     bg = bg_to_bk * bk;

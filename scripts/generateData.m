@@ -36,12 +36,12 @@ m.std_shock_prem_gap = 0.001;
 m.std_shock_ivy_tnd_hh = 0.001;
 m.std_shock_l_to_4ny_tnd_hh = 0.001;
 m.std_shock_rl_hh = 0;
-m.std_shock_rl_apm = 0.01;
+m.std_shock_apm = 0.01;
 m.std_shock_new_rl_hh = 0;
 m.std_shock_new_rl_full_hh = 0;
 m.std_shock_new_rl_full1_hh = 0;
 m.std_shock_new_rl_full2_hh = 0;
-m.std_shock_rl_apm_hh = 0;
+m.std_shock_apm_hh = 0;
 
 m.std_shock_rbk = 0;
 m.std_shock_riskw = 0;

@@ -1,7 +1,7 @@
 
 # Credit risk
 
-![[title-page.md]]
+![[title-page]]
 
 $$
 \newcommand{\xtnd}{\mathrm{tnd}}

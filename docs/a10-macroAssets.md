@@ -1,7 +1,7 @@
 
 # Macro assets
 
-![[title-page.md]]
+![[title-page]]
 
 $$
 \newcommand{\xfwy}{\mathit{fwy}}
@@ -49,7 +49,7 @@ lending costs and (expected) risks
 <br/>
 
 $$
-\xfwy_t = \left(1 - \delta_\xss \right)
+\xfwy_t^\xfund = \left(1 - \delta_\xss \right)
 \ \mathrm E_t \Bigl[
 y_t \ +\ \delta_{t,t+1} \cdot \frac{y_{t+1}}{y_\xss^\xroc} \ +\ \delta_{t,t+1} \cdot \delta_{t+1,t+2}\cdot
 \frac{y_{t+2}}{y_\xss^\xroc{\,}^2} \ +\  \cdots

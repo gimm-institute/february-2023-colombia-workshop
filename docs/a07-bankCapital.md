@@ -1,7 +1,7 @@
 
 # Bank capital and capital regulation
 
-![[title-page.md]]
+![[title-page]]
 
 $$
 \newcommand{\xona}[1][t]{{ona}_{#1}}
