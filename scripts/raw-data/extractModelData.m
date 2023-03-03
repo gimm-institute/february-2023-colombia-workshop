@@ -47,14 +47,16 @@ d = databank.fromSheet( ...
 
 scale = 1e-11;
 
-h.tna = d.Assets * scale;
-h.l = d.Total_gross_loans * scale;
-h.le = d.Total_net_loans * scale;
+sa = @(x) x13.season(x, autoMdl=true);
+
+h.tna = sa(d.Assets * scale);
+h.l = sa(d.Total_gross_loans * scale);
+h.le = sa(d.Total_net_loans * scale);
 
 % h.lp = d.Total_performing_loans * scale;
-h.ln = d.Total_non_performing_loans * scale;
-h.bk = d.Balance_sheet_capital * scale;
-h.rwa = d.Risk_weighted_assets * scale;
+h.ln = sa(d.Total_non_performing_loans * scale);
+h.bk = sa(d.Balance_sheet_capital * scale);
+h.rwa = sa(d.Risk_weighted_assets * scale);
 % h.woff = replaceData(d.Write_offs, [0, NaN]) * scale;
 
 h.car = d.Capital_adequacy_ratio;

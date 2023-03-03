@@ -54,35 +54,65 @@ load mat/createModel.mat m
 %% Design the simulation
 
 %
-% Create three variants of the model with lower steady-state credit to GDP
+% Create three variants of the LCY model with lower steady-state credit to GDP
 % ratios
 %
 
 down = [0.05, 0.10, 0.15];
 
 m1 = alter(m, 3);
-
-
-m1.ss_l_to_4ny_hh  = m1.ss_l_to_4ny_hh - [0.05, 0.10, 0.15];
-
+m1.ss_l_to_4ny_hh  = m1.ss_l_to_4ny_hh - down;
 
 m1 = steady(m1);
 checkSteady(m1);
 m1 = solve(m1);
 
 
-%% Run simulation
+%
+% Create three variants of the 0.70 FCY model with lower steady-state credit to GDP
+% ratios
+%
 
-d1 = databank.forModel(m, -10:40);
 
-s1 = simulate( ...
-    m1, d1, 1:40 ...
+f = m;
+f.ss_sigma_hh = 0.50;
+f = steady(f);
+checkSteady(f);
+f = solve(f);
+
+f1 = alter(f, 3);
+f1.ss_l_to_4ny_hh  = f1.ss_l_to_4ny_hh - down;
+
+f1 = steady(f1);
+checkSteady(f1);
+f1 = solve(f1);
+
+
+%% Run simulation of LCY model
+
+dm = databank.forModel(m, -10:40);
+%dm.shock_prem_gap(1) = 0.02;
+
+sm = simulate( ...
+    m1, dm, 1:40 ...
     , prependInput=true ...
     , method="stacked" ...
 );
 
-smc1 = databank.minusControl(m1, s1, d1);
 
+%% Run simulation of 0.70% FCY model
+
+df = databank.forModel(f, -10:40);
+df.shock_prem_gap(1) = 0.02;
+
+sf = simulate( ...
+    f1, df, 1:40 ...
+    , prependInput=true ...
+    , method="stacked" ...
+);
+
+smcm = databank.minusControl(m1, sm, dm);
+smcf = databank.minusControl(f1, sf, df);
 
 
 %% Chartpack
@@ -91,7 +121,8 @@ ch = defineChartpack();
 ch.FigureTitle = "Deleveraging: " + ch.FigureTitle;
 ch.Range = 0:40;
 ch.FigureExtras = { @(h) visual.hlegend("bottom", "Harmless", "Severe", "Devastating") };
-draw(ch, smc1);
+draw(ch, smcm);
+draw(ch, smcf);
 
 
 return
