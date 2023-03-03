@@ -37,7 +37,7 @@ h.re = h.e * h.cpiw / h.cpi;
 h.rr_bkw = (1 + h.r) / roc(h.cpi) - 1;
 
 % Real output trend and gap
-[h.y_tnd, h.y_gap] = hpf(h.y, "log", true, "level", h.y{qq(2022,3)}/1.02);
+[h.y_tnd, h.y_gap] = hpf(h.y, "log", true, "level", h.y{qq(2022,3)}/1.01);
 
 figure();
 plot(100*log([h.y, h.y_tnd])); title("Output");
@@ -54,7 +54,11 @@ plot(400*[h.rr_bkw, h.rr_tnd]); title("Real short rate");
 
 
 % Real exchange rate trend and gap
-[h.re_tnd, h.re_gap] = hpf(h.re, "log", true, "change", Series(endHist, 1));
+[h.re_tnd, h.re_gap] = hpf( ...
+    h.re, "log", true ...
+    , "change", Series(endHist, 1) ...
+    , "level", h.re{endHist}/1.03 ...
+);
 
 figure();
 plot(100*log([h.re, h.re_tnd])); title("Real exchange rate");
