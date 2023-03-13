@@ -7,8 +7,8 @@ x.c0_car_min = 0.8;
 
 x.ss_onfx = 0; % including off-balance sheet items
 x.ss_riskw   = 0.4; 
-x.ss_car_min = 10/100;
-x.ss_car_exc = 3/100;
+x.ss_car_min = 10.5/100;
+x.ss_car_exc = 7/100;
 
 
 x.floor_rbk = -10; -2;
@@ -32,7 +32,7 @@ x.c1_rbk_other = 0;
 
 % Other assets
 
-x.ss_ona_to_tna = 0.65; 
+x.ss_ona_to_tna = 0.30;
 x.c0_ona = 0.8;
 
 

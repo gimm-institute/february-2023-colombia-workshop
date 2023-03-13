@@ -51,13 +51,17 @@ sa = @(x) x13.season(x, autoMdl=true);
 
 h.tna = sa(d.Assets * scale);
 h.l = sa(d.Total_gross_loans * scale);
-h.le = sa(d.Total_net_loans * scale);
+% h.le = sa(d.Total_net_loans * scale);
 
 % h.lp = d.Total_performing_loans * scale;
 h.ln = sa(d.Total_non_performing_loans * scale);
 h.bk = sa(d.Balance_sheet_capital * scale);
 h.rwa = sa(d.Risk_weighted_assets * scale);
 % h.woff = replaceData(d.Write_offs, [0, NaN]) * scale;
+h.lp = h.l - h.ln;
+
+h.a = 0.45*h.ln + 0.04*h.lp;
+h.le = h.l - h.a;
 
 h.car = d.Capital_adequacy_ratio;
 h.bg = h.car * h.rwa;
@@ -67,6 +71,6 @@ h.rd = d.Average_funding_rates / 4;
 
 h.car_min = d.CAR_limit + fillMissing(d.Buffer, getRange(d.CAR_limit), 0);
 
-databank.toSheet(h, "../data/model-data.csv");
+databank.toSheet(h, "../data/input-data.csv");
 
 

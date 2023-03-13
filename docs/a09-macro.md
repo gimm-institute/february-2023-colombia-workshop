@@ -1,7 +1,7 @@
 
 # Macro
 
-
+![[title-page]]
 $$
 \newcommand{\loan}{l}
 \newcommand{\xnewrl}[1][t]{rl^\Delta_{#1}}
@@ -36,7 +36,7 @@ $$
 $$
 
 
-## Overview	
+### Overview	
 
 The macro block follows the standard blueprint of Quarterly Projection
 Model (QPM), widely used by central banks for monetary policy analysis and
@@ -46,7 +46,7 @@ We present only the important deviations from the standard blueprint.
 
 The macro block can be tailored to fit already existing macro models.
 
-## Aggregate demand
+### Aggregate demand
 
 Output (GDP) decomposition
 $$
@@ -68,7 +68,7 @@ $$
 
 
 
-## Aggregate supply
+### Aggregate supply
 
 Possible **hysteresis** effect of the output gap on potential output
 
@@ -83,7 +83,7 @@ $$
 
 
 
-## Forward sum of discounted real income
+### Forward sum of discounted real income
 
 
 Capture long-term expectations of real income (GDP), sensitive to lending conditions
@@ -101,13 +101,14 @@ $$
 
 
 Normalize for analytical convenience so that
+
 $$
 y_\xss^\xfws = y_\xss
 $$
 
 
 
-## Exchange rate and country premium
+### Exchange rate and country premium
 
 Risk-adjusted interest parity
 

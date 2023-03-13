@@ -1,13 +1,7 @@
 
 # Delta Method
 
-![GIMM-right|180](gimm-alt-white-bkg.png)
-
-*Jaromir Benes* jaromir.benes@gimm.institute
-*Tomas Motl* tomas.motl@gimm.institute
-
-GIMM Inaugural Workshop
-April 2022
+![[title-page]]
 
 ---
 
@@ -51,6 +45,7 @@ April 2022
 ---
 
 ### Conceptual explanation
+
 * Adopt the baseline scenario from an external source as a starting point
 * Reproduce the baseline scenario by a so-called model inversion
 	* Replicate paths of variables from the baseline scenario by our model
@@ -62,6 +57,7 @@ April 2022
 ---
 
 ### Technical explanation 
+
 * Assume you want to build a macrofinancial scenario consistent with externally provided macro forecast
 
 $$
@@ -104,6 +100,7 @@ $$
 ---
 
 ### Result
+
 * Simulate again with updated set of shocks
 	* Incorporates the shocks that replicate the baseline macro scenarion **plus** your additional inputs
 * The resulting scenario:

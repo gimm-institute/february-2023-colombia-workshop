@@ -29,7 +29,7 @@ h.rw(qq(2023,1):qq(2024,4)) = [4.5;4.75;4.75;4.75;4.75;4.75;4.75;4.3]/400;
 p = swap(p, startScen, ["e", "tune_prem_gap"]);
 h.e(qq(2023,1)) = 4700;
 
-s = simulate( ...
+b = simulate( ...
     n, h, startScen:endScen ...
     , "prependInput", true ...
     , "method", "stacked" ...
@@ -45,8 +45,8 @@ ch.Transform = @(x) 100*(x-1);
 ch + ["Output gap: y_gap", "Potential growth, PA: roc_y_tnd^4", "CPI inflation, PA: roc_cpi^4", "Real exchange rate gap: re_gap"];
 ch + ["Policy rate: ^ 400*r", "USD exchange rate: ^ 1000*e", "Foreign short rate: ^ 400*rw"];
 
-draw(ch, s);
+draw(ch, b);
 
-databank.toSheet(s, "data/macro-baseline.csv");
+databank.toSheet(b, "data/macro-baseline.csv");
 
 
