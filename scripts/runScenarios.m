@@ -83,8 +83,9 @@ ch + ["CAR: ^ 100*car", "Portfolio default rates: ^ 100*q_hh"];
 ch + ["Lending rates: ^ 400*new_rl_hh"];
 
 draw(ch, databank.merge("horzcat", s0, s1));
+visual.hlegend("bottom", "Baseline", "Stress");
 
-%%
+%% Components of return on bank capital
 
 figure();
 tiledlayout("flow");
@@ -96,4 +97,6 @@ for n = ["rbk", names(startsWith(names, "rbk_"))]
     title(n, "interpreter", "none");
     xline(endHist);
 end
+visual.hlegend("bottom", "Baseline", "Stress", "Steady state");
+visual.heading("Components of return on bank capital")
 
